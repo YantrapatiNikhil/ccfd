@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<link rel="stylesheet" href="{{ url_for('static', filename='yamini.css') }}">
+<meta name="viewport" content="width=device-width,initial-scale=1,shrink-to-fit=no">
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+<title>Credit Crad Fraud Prediction</title>
+<style>
+body{
+background-image: url({{url_for('static',filename='credit-card.jpg')}});
+background-attachment: fixed;
+background-repeat: no-repeat;
+background-size: 100%;
+opacity:0.8;
+}
+</style>
+</head>
+<body style="color: aliceblue;">
+<!--<p id="bgim"></p>-->
+<header>
+<div>
+<marquee width="100%" direction="left" height="100px">
+<h1 class="logo">Credit Crad Fraud Prediction</h1>
+</marquee>
+</div>
+</header>
+<div class="container text-center" >
+<form action="{{ url_for('predict') }}" method="POST" >
+<label for="age">Age:</label>
+<input type="number" name="age" placeholder="enter the AGE"><br>
+<label for="sex">Gender:</label>
+<input type="radio" name="sex" value="FeMale">
+<label for="FeMale">FEMALE</label><br>
+<input type="radio" name="sex" value="Male">
+<label for="Male">MALE</label><br>
+<label for="job">JOB:</label>
+<input type="number" name="job" placeholder="enter job as 1-2-3"><br>
+<label for="housing">Housing:</label>
+<select name="housing">
+<option value="own">Own</option>
+<option value="free">Free</option>
+<option value="rent">Rent</option>
+</select><br>
+<label for="saving_account">Savings Account:</label>
+<select name="saving_account">
+<option value="little">Little</option>
+<option value="moderate">Moderate</option>
+<option value="rich">Rich</option>
+<option value="quite rich">Quit Rich</option>
+</select><br>
+<label for="check_acc">Checking Account:</label>
+<select name="check_acc">
+<option value="little">Little</option>
+<option value="moderate">Moderate</option>
+<option value="rich">Rich</option>
+<option value="quite rich">Quite Rich</option>
+</select><br>
+<label for="duration">Duration:</label>
+<input type="number" name="duration" placeholder="Duration"><br>
+<label for="amount">Amount:</label>
+<input type="number" name="amount" placeholder="Amount"><br>
+<label for="purpose">Purpose:</label>
+<select name="purpose">
+<option value="car">Car</option>
+<option value="'radio/TV">Radio/TV</option>
+<option value="furniture/equipment">Furniture/Equipment</option>
+<option value="business">Business</option>
+<option value="education">Education</option>
+<option value="domestic appliances">Domestic Appliances</option>
+<option value="vacation/others">Vacation/Others</option>
+</select><br>
+<button class='btn bt-success' style="color: aliceblue;">PREDICT</button>
+</form>
+<div class="row">
+{% if prediction %}
+<h6 style="text-align: center;
+font-size: 5em;
+font-style:italic;
+color: rgb(247, 94, 6);">{{prediction}}</h6>
+{% endif %}
+</div>
+</div>
+<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js" integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/js/bootstrap.min.js" integrity="sha384-w1Q4orYjBQndcko6MimVbzY0tgp4pWB4lZ7lr30WKz0vr/aWKhXdBNmNb5D92v7s" crossorigin="anonymous"></script>
+</body>
+</html>
